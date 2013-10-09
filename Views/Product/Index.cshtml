@@ -88,8 +88,12 @@
             @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
-            @{ var ods = string.Join("; ", item.OrderDetails.ToArray());}
-            <span>@ods</span>
+            @if(item.OrderDetails != null)
+            {
+                var ods = string.Join("; ", item.OrderDetails.ToArray());
+                <span>@ods</span>
+            }
+
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.ProductId })
